@@ -1,10 +1,9 @@
 # Pubmed API info: https://www.ncbi.nlm.nih.gov/books/NBK25499/#_chapter4_ESearch_
 
-# Search boolean terms
-curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
-cochlea+AND+utricle+OR\
-+semicircular+canal\
-&retstart=0\
-&retmax=60\
-&tool=biomed3&\
-retmode=json"
+# Search two terms using + sign
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=Cochlea+utricle&retstart=6&retmax=60&tool=biomed3&retmode=json"
+
+#NIHReporter project search info: https://api.reporter.nih.gov/
+
+
+#Search for projects during specific years
