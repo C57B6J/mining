@@ -1,14 +1,13 @@
- {
+{
     "criteria": {
-	    advanced_text_search: {  search_field: "terms",  "search_text": "(utricle or cochlea) not fossa" }
-	    },
+	    advanced_text_search: { search_field: "terms","search_text","projecttitle": "(cochlea OR \"basilar papilla\" OR \"organ of corti\" OR \"stria vascularis\" OR \"basilar membrane\" OR \"reissner's membrane\" OR \"spiral ganglion\" OR
+\"vestibular labyrinth\" OR \"semicircular canal\" OR \"vestibular macula\" OR otolith OR \"crista ampullaris\" OR utricle) saccule NOT prostatic NOT laryngeal" },
+    },
     "include_fields": [
-	    "FiscalYear",
-	    "ProjectNum",
-	    "AwardAmount"
+	    "FiscalYear", "ProjectNum"
     ],
     "offset": 0,
-    "limit": 1,
+    "limit": 4,
     "sort_field": "appl_id",
     "sort_order": "desc"
  }
