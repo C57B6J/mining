@@ -4,18 +4,35 @@ import time
 
 endpoint = "https://api.reporter.nih.gov/v2/projects/search"
 
+ # query_payload = {
+ #     "criteria": {
+ #         "advanced_text_search": { "search_field": "terms,projecttitle", "search_text": "(cochlea OR \"basilar papilla\" OR \"organ of corti\" OR \"stria vascularis\" OR \"basilar membrane\" OR \"vestibular labyrinth\" OR \"semicircular canal\" OR \"vestibular macula\" OR otolith OR crista ampullaris OR utricle)"}
+ #     },
+ #     "include_fields": [
+ #             "FiscalYear", "ProjectNum"
+ #     ],
+ #     "offset": 0,
+ #     "limit": 10,
+ #     "sort_field": "appl_id",
+ #     "sort_order": "desc"
+ #  }
+
+
+
 query_payload = {
     "criteria": {
-        "advanced_text_search": { "search_field": "terms,projecttitle", "search_text": "(cochlea OR \"basilar papilla\" OR \"organ of corti\" OR \"stria vascularis\" OR \"basilar membrane\" OR \"vestibular labyrinth\" OR \"semicircular canal\" OR \"vestibular macula\" OR otolith OR crista ampullaris OR utricle)"}
+            "advanced_text_search": { "search_field": "terms,projecttitle", "search_text": "(cochlea OR \"basilar papilla\" OR \"organ of corti\" OR \"stria vascularis\" OR \"reissner membrane\" OR \"spiral ganglion\" OR \"basilar membrane\" OR \"vestibular labyrinth\" OR \"semicircular canal\" OR \"vestibular macula\" OR \"otolith\" OR \"crista ampullaris\" OR  \"utricle\" NOT \"prostatic\" NOT \"pharyngeal\")"}
     },
     "include_fields": [
-            "FiscalYear", "ProjectNum"
+            "FiscalYear", "ProjectNum", "ActivityCode","AwardType","Organization"
     ],
     "offset": 0,
-    "limit": 10,
-    "sort_field": "appl_id",
+    "limit": 10,   # should be 500
+    "sort_field": "project_start_date",
     "sort_order": "desc"
  }
+
+
 
 def make_request(q):
     r = requests.post(endpoint, json=q)
@@ -47,4 +64,4 @@ for i in range(0, ((total_results + step ) // step) * step, step ):
 
     with open("data.json", "a+") as outfile:
         outfile.write(json.dumps(r.json()))
-    time.sleep(6)
+    time.sleep(1)
