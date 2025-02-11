@@ -1,12 +1,14 @@
  {
     "criteria": {
-            advanced_text_search: { search_field: "terms,projecttitle", "search_text": "(cochlea OR \"basilar papilla\" OR \"organ of corti\" OR \"stria vascularis\" OR \"basilar membrane\" OR \"vestibular labyrinth\" OR \"semicircular canal\" OR \"vestibular macula\" OR otolith OR crista ampullaris OR utricle)"}
+            advanced_text_search: { search_field: "terms,projecttitle", "search_text": "(cochlea OR \"basilar papilla\" OR \"organ of corti\" OR \"stria vascularis\" OR \"reissner membrane\" OR \"spiral ganglion\" OR \"basilar membrane\" OR \"vestibular labyrinth\" OR \"semicircular canal\" OR \"vestibular macula\" OR \"otolith\" OR \"crista ampullaris\" OR  \"utricle\" NOT \"prostatic\" NOT \"pharyngeal\")"}
     },
     "include_fields": [
-            "FiscalYear", "ProjectNum"
+            "FiscalYear", "ProjectNum", "activity_codes", "award_types", "org_names", "org_cities", "org_states", "org_countries", 
     ],
     "offset": 0,
-    "limit": 4,
-    "sort_field": "appl_id",
+    "limit": 500,
+    "sort_field": "project_start_date",
     "sort_order": "desc"
  }
+
+
