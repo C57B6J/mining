@@ -1,0 +1,283 @@
+#Select strings from abstract text that contain inner ear terms N=6720
+sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
+(
+  abstract_text LIKE "%cochlea%" 
+  OR abstract_text LIKE "%outer hair cell%" 
+  OR abstract_text LIKE "%auditory hair cell%"
+  OR abstract_text LIKE "%basilar papilla%" 
+  OR abstract_text LIKE "%stria vascular%" 
+  OR abstract_text LIKE "%reissner%"
+  OR abstract_text LIKE "%spiral gangli%"
+  OR abstract_text LIKE "%vestibular labyrinth%"
+  OR abstract_text LIKE "%vestibular nerv%"
+  OR abstract_text LIKE "%vestibular macula%"
+  OR abstract_text LIKE "%vestibular epitheli%"
+  OR abstract_text LIKE "%vestibular gangli%"
+  OR abstract_text LIKE "%otolith%"
+  OR abstract_text LIKE "%otoconi%"
+  OR abstract_text LIKE "%semicircular %"
+  OR abstract_text LIKE "%crista ampullaris%"
+  OR abstract_text LIKE "%cupula%"
+  OR abstract_text LIKE "% utric%"
+  OR abstract_text LIKE "%saccul%"
+  OR abstract_text LIKE "%organ of corti%")
+    AND (abstract_text NOT LIKE "%prostatic%"
+    AND abstract_text NOT LIKE "%laryngeal%")'
+
+#Select strings from abstract text that contain auditory terms only N=5619
+sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
+(
+  abstract_text LIKE "%cochlea%" 
+  OR abstract_text LIKE "%outer hair cell%" 
+  OR abstract_text LIKE "%auditory hair cell%"
+  OR abstract_text LIKE "%basilar papilla%" 
+  OR abstract_text LIKE "%stria vascular%" 
+  OR abstract_text LIKE "%reissner%"
+  OR abstract_text LIKE "%spiral gangli%"
+  OR abstract_text LIKE "%organ of corti%")
+    AND (abstract_text NOT LIKE "%prostatic%"
+    AND abstract_text NOT LIKE "% utricl%"
+    AND abstract_text NOT LIKE "%saccul%"
+    AND abstract_text NOT LIKE "%laryngeal%"
+    AND abstract_text NOT LIKE "%vestibular labyrinth%"
+    AND abstract_text NOT LIKE "%vestibular epitheli%"
+    AND abstract_text NOT LIKE "%vestibular gangli%"
+    AND abstract_text NOT LIKE "%vestibular nerv%"
+    AND abstract_text NOT LIKE "%semicircular %"
+    AND abstract_text NOT LIKE "%cupula%"
+    AND abstract_text NOT LIKE "%crista ampullaris%"
+    AND abstract_text NOT LIKE "%vestibular macula%"
+    AND abstract_text NOT LIKE "%otolith%"
+    AND abstract_text NOT LIKE "%otoconi%"
+    )'
+
+#Select strings from abstract text that contain vestibular search terms only N=754
+sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
+(
+  abstract_text LIKE "%vestibular labyrinth%"
+  OR abstract_text LIKE "%semicircular %"
+  OR abstract_text LIKE "%vestibular macula%"
+  OR abstract_text LIKE "%vestibular epitheli%"
+  OR abstract_text LIKE "%vestibular gangli%"
+  OR abstract_text LIKE "%vestibular nerv%"
+  OR abstract_text LIKE "%otolith%"
+  OR abstract_text LIKE "%otoconi%"
+  OR abstract_text LIKE "%crista ampullaris%"
+  OR abstract_text LIKE "%cupula%"
+  OR abstract_text LIKE "% utric%"
+  OR abstract_text LIKE "%saccul%")
+    AND (abstract_text NOT LIKE "%prostatic%"
+    AND abstract_text NOT LIKE "%laryngeal%"
+    AND abstract_text NOT LIKE "%cochlea%"
+    AND abstract_text NOT LIKE "%outer hair cell%"
+    AND abstract_text NOT LIKE "%auditory hair cell%"
+    AND abstract_text NOT LIKE "%organ of corti%"
+    AND abstract_text NOT LIKE "%basilar papilla%" 
+    AND abstract_text NOT LIKE "%stria vascular%" 
+    AND abstract_text NOT LIKE "%basilar membrane%"
+    AND abstract_text NOT LIKE "%reissner%"
+    AND abstract_text NOT LIKE "%spiral gangli%")'
+
+#Select strings that are not either auditory or vestibular N=1553
+sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
+(
+ abstract_text NOT LIKE "%cochlea%" 
+    AND abstract_text NOT LIKE "%semicircular %"
+    AND abstract_text NOT LIKE "%vestibular macula%"
+    AND abstract_text NOT LIKE "%vestibular epitheli%"
+    AND abstract_text NOT LIKE "%vestibular labyrinth%"
+    AND abstract_text NOT LIKE "%vestibular gangli%"
+    AND abstract_text NOT LIKE "%vestibular nerv%"
+    AND abstract_text NOT LIKE "%otolith%"
+    AND abstract_text NOT LIKE "%otoconi%"
+    AND abstract_text NOT LIKE "%crista ampullaris%"
+    AND abstract_text NOT LIKE "%cupula%"
+    AND abstract_text NOT LIKE "% utric%"
+    AND abstract_text NOT LIKE "%saccul%"
+    AND abstract_text NOT LIKE "%cochlea%"
+    AND abstract_text NOT LIKE "%outer hair cell%"
+    AND abstract_text NOT LIKE "%auditory hair cell%"
+    AND abstract_text NOT LIKE "%basilar papilla%" 
+    AND abstract_text NOT LIKE "%stria vascular%" 
+    AND abstract_text NOT LIKE "%basilar membrane%"
+    AND abstract_text NOT LIKE "%reissner%"
+    AND abstract_text NOT LIKE "%spiral gangli%"
+    AND abstract_text NOT LIKE "%prostatic%"
+    AND abstract_text NOT LIKE "%laryngeal%"
+    AND abstract_text NOT LIKE "%organ of corti%")'
+
+#View abstracts that contain none of the auditory or vestibular specific search terms 
+sqlite3 awards.db 'SELECT abstract_text FROM 
+(SELECT * FROM awards WHERE
+     abstract_text NOT LIKE "%cochlea%" 
+    AND abstract_text NOT LIKE "%semicircular %"
+    AND abstract_text NOT LIKE "%vestibular macula%"
+    AND abstract_text NOT LIKE "%vestibular epitheli%"
+    AND abstract_text NOT LIKE "%vestibular gangli%"
+    AND abstract_text NOT LIKE "%vestibular nerv%"
+    AND abstract_text NOT LIKE "%otolith%"
+    AND abstract_text NOT LIKE "%otoconi%"
+    AND abstract_text NOT LIKE "%crista ampullaris%"
+    AND abstract_text NOT LIKE "%cupula%"
+    AND abstract_text NOT LIKE "% utric%"
+    AND abstract_text NOT LIKE "%saccul%"
+    AND abstract_text NOT LIKE "%cochlea%"
+    AND abstract_text NOT LIKE "%outer hair cell%"
+    AND abstract_text NOT LIKE "%auditory hair cell%"
+    AND abstract_text NOT LIKE "%basilar papilla%" 
+    AND abstract_text NOT LIKE "%stria vascular%" 
+    AND abstract_text NOT LIKE "%basilar membrane%"
+    AND abstract_text NOT LIKE "%reissner%"
+    AND abstract_text NOT LIKE "%spiral gangli%"
+    AND abstract_text NOT LIKE "%prostatic%"
+    AND abstract_text NOT LIKE "%laryngeal%"
+    AND abstract_text NOT LIKE "%organ of corti%")'
+________________________________________________________________________________________
+
+#Sum of total award amounts by year for all inner ear grants
+sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
+(
+  abstract_text LIKE "%cochlea%" 
+  OR abstract_text LIKE "%outer hair cell%" 
+  OR abstract_text LIKE "%auditory hair cell%"
+  OR abstract_text LIKE "%basilar papilla%" 
+  OR abstract_text LIKE "%stria vascular%" 
+  OR abstract_text LIKE "%reissner%"
+  OR abstract_text LIKE "%spiral gangli%"
+  OR abstract_text LIKE "%vestibular labyrinth%"
+  OR abstract_text LIKE "%vestibular gangli%"
+  OR abstract_text LIKE "%vestibular nerv%"
+  OR abstract_text LIKE "%semicircular %"
+  OR abstract_text LIKE "%vestibular macula%"
+  OR abstract_text LIKE "%otolith%"
+  OR abstract_text LIKE "%otoconi%"
+  OR abstract_text LIKE "%crista ampullaris%"
+  OR abstract_text LIKE "%cupula%"
+  OR abstract_text LIKE "% utric%"
+  OR abstract_text LIKE "%saccul%"
+  OR abstract_text LIKE "%organ of corti%")
+    AND (abstract_text NOT LIKE "%prostatic%"
+    AND abstract_text NOT LIKE "%laryngeal%")
+    GROUP by fiscal_year'
+ 
+#Sum of total award amounts by year for grants only containing auditory terms
+sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
+(
+  abstract_text LIKE "%cochlea%" 
+  OR abstract_text LIKE "%outer hair cell%" 
+  OR abstract_text LIKE "%auditory hair cell%"
+  OR abstract_text LIKE "%basilar papilla%" 
+  OR abstract_text LIKE "%stria vascular%" 
+  OR abstract_text LIKE "%reissner%"
+  OR abstract_text LIKE "%spiral gangli%"
+  OR abstract_text LIKE "%organ of corti%")
+    AND (abstract_text NOT LIKE "%prostatic%"
+    AND abstract_text NOT LIKE "% utricl%"
+    AND abstract_text NOT LIKE "%saccul%"
+    AND abstract_text NOT LIKE "%laryngeal%"
+    AND abstract_text NOT LIKE "%vestibular labyrinth%"
+    AND abstract_text NOT LIKE "%vestibular gangli%"
+    AND abstract_text NOT LIKE "%vestibular nerv%"
+    AND abstract_text NOT LIKE "%semicircular %"
+    AND abstract_text NOT LIKE "%vestibular macula%"
+    AND abstract_text NOT LIKE "%otolith%"
+    AND abstract_text NOT LIKE "%otoconi%"
+    AND abstract_text NOT LIKE "%crista ampullaris%"
+    AND abstract_text NOT LIKE "%cupula%")
+      GROUP by fiscal_year'
+
+#Sum of total award amounts by year for grants only containing vestibular terms
+sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
+(
+  abstract_text LIKE "%vestibular labyrinth%"
+  OR abstract_text LIKE "%semicircular %"
+  OR abstract_text LIKE "%vestibular macula%"
+  OR abstract_text LIKE "%vestibular gangli%"
+  OR abstract_text LIKE "%vestibular nerv%"
+  OR abstract_text LIKE "%vestibular epitheli%"
+  OR abstract_text LIKE "%otolith%"
+  OR abstract_text LIKE "%otoconi%"
+  OR abstract_text LIKE "%cupula%"
+  OR abstract_text LIKE "%crista ampullaris%"
+  OR abstract_text LIKE "% utric%"
+  OR abstract_text LIKE "%saccul%")
+    AND (abstract_text NOT LIKE "%prostatic%"
+    AND abstract_text NOT LIKE "%laryngeal%"
+    AND abstract_text NOT LIKE "%cochlea%"
+    AND abstract_text NOT LIKE "%outer hair cell%" 
+    AND abstract_text NOT LIKE "%auditory hair cell%"
+    AND abstract_text NOT LIKE "%organ of corti%"
+    AND abstract_text NOT LIKE "%basilar papilla%" 
+    AND abstract_text NOT LIKE "%stria vascular%" 
+    AND abstract_text NOT LIKE "%basilar membrane%"
+    AND abstract_text NOT LIKE "%reissner%"
+    AND abstract_text NOT LIKE "%spiral gangli%")
+       GROUP by fiscal_year'
+
+#Sum of total award amounts by year for grants with neither auditory or vestibular specific search terms 
+sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
+(
+     abstract_text NOT LIKE "%cochlea%" 
+    AND abstract_text NOT LIKE "%semicircular %"
+    AND abstract_text NOT LIKE "%cupula%"
+    AND abstract_text NOT LIKE "%vestibular macula%"
+    AND abstract_text NOT LIKE "%vestibular gangli%"
+    AND abstract_text NOT LIKE "%vestibular nerv%"
+    AND abstract_text NOT LIKE "%vestibular epitheli%"
+    AND abstract_text NOT LIKE "%otolith%"
+    AND abstract_text NOT LIKE "%otoconi%"
+    AND abstract_text NOT LIKE "%crista ampullaris%"
+    AND abstract_text NOT LIKE "% utric%"
+    AND abstract_text NOT LIKE "%saccul%"
+    AND abstract_text NOT LIKE "%cochlea%"
+    AND abstract_text NOT LIKE "%outer hair cell%" 
+    AND abstract_text NOT LIKE "%auditory hair cell%"
+    AND abstract_text NOT LIKE "%basilar papilla%" 
+    AND abstract_text NOT LIKE "%stria vascular%" 
+    AND abstract_text NOT LIKE "%basilar membrane%"
+    AND abstract_text NOT LIKE "%reissner%"
+    AND abstract_text NOT LIKE "%spiral gangli%"
+    AND abstract_text NOT LIKE "%prostatic%"
+    AND abstract_text NOT LIKE "%laryngeal%"
+    AND abstract_text NOT LIKE "%organ of corti%")
+     GROUP by fiscal_year'
+______________________________________________________________
+#test ouptut of filter selectivity
+sqlite3 awards.db 'SELECT abstract_text FROM 
+(SELECT * FROM 
+awards WHERE
+abstract_text LIKE "%utricle%")'
+
+sqlite3 awards.db 'SELECT abstract_text FROM 
+(SELECT * FROM 
+awards WHERE
+ abstract_text NOT LIKE "%cochlea%" 
+    AND abstract_text NOT LIKE "%semicircular %"
+    AND abstract_text NOT LIKE "%vestibular macula%"
+    AND abstract_text NOT LIKE "%vestibular epitheli%"
+    AND abstract_text NOT LIKE "%vestibular gangli%"
+    AND abstract_text NOT LIKE "%vestibular nerv%"
+    AND abstract_text NOT LIKE "%otolith%"
+    AND abstract_text NOT LIKE "%otoconi%"
+    AND abstract_text NOT LIKE "%crista ampullaris%"
+    AND abstract_text NOT LIKE "%cupula%"
+    AND abstract_text NOT LIKE "% utric%"
+    AND abstract_text NOT LIKE "%saccul%"
+    AND abstract_text NOT LIKE "%cochlea%"
+    AND abstract_text NOT LIKE "%outer hair cell%" 
+    AND abstract_text NOT LIKE "%auditory hair cell%"
+    AND abstract_text NOT LIKE "%basilar papilla%" 
+    AND abstract_text NOT LIKE "%stria vascular%" 
+    AND abstract_text NOT LIKE "%basilar membrane%"
+    AND abstract_text NOT LIKE "%reissner%"
+    AND abstract_text NOT LIKE "%spiral gangli%"
+    AND abstract_text NOT LIKE "%prostatic%"
+    AND abstract_text NOT LIKE "%laryngeal%"
+    AND abstract_text NOT LIKE "%organ of corti%")'
+
+#Identify and list all instances of 
+sqlite3 awards.db 'SELECT abstract_text from awards;' | grep -io "auditory nerv\w\+" | sort -u
+
+#Shows the abstract text and allows options like / to search for specific phrase
+sqlite3 awards.db 'SELECT abstract_text from awards;' | grep -i "utric\w\+" | less   
+
