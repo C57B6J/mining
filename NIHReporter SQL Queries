@@ -2,6 +2,7 @@
 sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
 (
   abstract_text LIKE "%cochlea%" 
+  OR abstract_text LIKE "%inner hair cell%" 
   OR abstract_text LIKE "%outer hair cell%" 
   OR abstract_text LIKE "%auditory hair cell%"
   OR abstract_text LIKE "%basilar papilla%" 
@@ -28,7 +29,8 @@ sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
 sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
 (
   abstract_text LIKE "%cochlea%" 
-  OR abstract_text LIKE "%outer hair cell%" 
+  OR abstract_text LIKE "%outer hair cell%"
+  OR abstract_text LIKE "%inner hair cell%" 
   OR abstract_text LIKE "%auditory hair cell%"
   OR abstract_text LIKE "%basilar papilla%" 
   OR abstract_text LIKE "%stria vascular%" 
@@ -51,7 +53,7 @@ sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
     AND abstract_text NOT LIKE "%otoconi%"
     )'
 
-#Select strings from abstract text that contain vestibular search terms only N=754
+#Select strings from abstract text that contain vestibular search terms only N=?
 sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
 (
   abstract_text LIKE "%vestibular labyrinth%"
@@ -69,6 +71,7 @@ sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
     AND (abstract_text NOT LIKE "%prostatic%"
     AND abstract_text NOT LIKE "%laryngeal%"
     AND abstract_text NOT LIKE "%cochlea%"
+    AND abstract_text NOT LIKE "%inner hair cell%"
     AND abstract_text NOT LIKE "%outer hair cell%"
     AND abstract_text NOT LIKE "%auditory hair cell%"
     AND abstract_text NOT LIKE "%organ of corti%"
@@ -78,7 +81,7 @@ sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
     AND abstract_text NOT LIKE "%reissner%"
     AND abstract_text NOT LIKE "%spiral gangli%")'
 
-#Select strings that are not either auditory or vestibular N=1553
+#Select strings that are not either auditory or vestibular N=?
 sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
 (
  abstract_text NOT LIKE "%cochlea%" 
@@ -95,6 +98,7 @@ sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
     AND abstract_text NOT LIKE "% utric%"
     AND abstract_text NOT LIKE "%saccul%"
     AND abstract_text NOT LIKE "%cochlea%"
+    AND abstract_text NOT LIKE "%inner hair cell%"
     AND abstract_text NOT LIKE "%outer hair cell%"
     AND abstract_text NOT LIKE "%auditory hair cell%"
     AND abstract_text NOT LIKE "%basilar papilla%" 
@@ -122,6 +126,7 @@ sqlite3 awards.db 'SELECT abstract_text FROM
     AND abstract_text NOT LIKE "% utric%"
     AND abstract_text NOT LIKE "%saccul%"
     AND abstract_text NOT LIKE "%cochlea%"
+    AND abstract_text NOT LIKE "%inner hair cell%"
     AND abstract_text NOT LIKE "%outer hair cell%"
     AND abstract_text NOT LIKE "%auditory hair cell%"
     AND abstract_text NOT LIKE "%basilar papilla%" 
@@ -138,6 +143,7 @@ ________________________________________________________________________________
 sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
 (
   abstract_text LIKE "%cochlea%" 
+  OR abstract_text LIKE "%inner hair cell%"
   OR abstract_text LIKE "%outer hair cell%" 
   OR abstract_text LIKE "%auditory hair cell%"
   OR abstract_text LIKE "%basilar papilla%" 
@@ -164,6 +170,7 @@ sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM award
 sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
 (
   abstract_text LIKE "%cochlea%" 
+  OR abstract_text LIKE "%inner hair cell%"
   OR abstract_text LIKE "%outer hair cell%" 
   OR abstract_text LIKE "%auditory hair cell%"
   OR abstract_text LIKE "%basilar papilla%" 
