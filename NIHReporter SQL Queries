@@ -1,4 +1,9 @@
-#Select strings from abstract text that contain inner ear terms N=6720
+#Select strings from abstract text that contain the letter "a" Total=8288
+sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
+(
+  abstract_text LIKE "%a%" )'
+
+#Select strings from abstract text that contain inner ear terms N=6739
 sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
 (
   abstract_text LIKE "%cochlea%" 
@@ -25,7 +30,7 @@ sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
     AND (abstract_text NOT LIKE "%prostatic%"
     AND abstract_text NOT LIKE "%laryngeal%")'
 
-#Select strings from abstract text that contain auditory terms only N=5619
+#Select strings from abstract text that contain auditory terms only N=5638
 sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
 (
   abstract_text LIKE "%cochlea%" 
@@ -53,7 +58,7 @@ sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
     AND abstract_text NOT LIKE "%otoconi%"
     )'
 
-#Select strings from abstract text that contain vestibular search terms only N=?
+#Select strings from abstract text that contain vestibular search terms only N=754
 sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
 (
   abstract_text LIKE "%vestibular labyrinth%"
@@ -81,7 +86,7 @@ sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
     AND abstract_text NOT LIKE "%reissner%"
     AND abstract_text NOT LIKE "%spiral gangli%")'
 
-#Select strings that are not either auditory or vestibular N=?
+#Select strings that are not either auditory or vestibular N=1539
 sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
 (
  abstract_text NOT LIKE "%cochlea%" 
