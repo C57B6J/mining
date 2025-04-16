@@ -1,10 +1,8 @@
-#Select strings from abstract text that contain the letter "a" Total=8288
-sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
-(
-  abstract_text LIKE "%a%" )'
+#Select strings from abstract text that contain wildcard Total=8529
+sqlite3 awards2.db 'SELECT count (*) FROM awards' 
 
-#Select strings from abstract text that contain inner ear terms N=6776
-sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
+#Select strings from abstract text that contain inner ear terms N=6717 
+sqlite3 awards2.db 'SELECT count (*) FROM awards WHERE
 (
   abstract_text LIKE "%cochlea%" 
   OR abstract_text LIKE "%inner hair cell%" 
@@ -33,7 +31,7 @@ sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
       GROUP by fiscal_year'
 
 #Select strings from abstract text that contain auditory terms only N=5675
-sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
+sqlite3 awards2.db 'SELECT count (*) FROM awards WHERE
 (
   abstract_text LIKE "%cochlea%" 
   OR abstract_text LIKE "%outer hair cell%"
@@ -61,8 +59,8 @@ sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
     AND abstract_text NOT LIKE "%otoconi%")
       GROUP by fiscal_year'
 
-#Select strings from abstract text that contain vestibular search terms only N=754
-sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
+#Select strings from abstract text that contain vestibular search terms only N=758
+sqlite3 awards2.db 'SELECT count (*) FROM awards WHERE
 (
   abstract_text LIKE "%vestibular labyrinth%"
   OR abstract_text LIKE "%semicircular %"
@@ -91,8 +89,8 @@ sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
     AND abstract_text NOT LIKE "%auditory nerv%")
       GROUP by fiscal_year'
 
-#Select strings that are not either auditory or vestibular N=1502
-sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
+#Select strings that are not either auditory or vestibular N=1532
+sqlite3 awards2.db 'SELECT count (*) FROM awards WHERE
 (
  abstract_text NOT LIKE "%cochlea%" 
     AND abstract_text NOT LIKE "%semicircular %"
@@ -123,7 +121,7 @@ sqlite3 awards.db 'SELECT count (*) FROM awards WHERE
       GROUP by fiscal_year'
 
 #View abstracts that contain none of the auditory or vestibular specific search terms 
-sqlite3 awards.db 'SELECT abstract_text FROM 
+sqlite3 awards2.db 'SELECT abstract_text FROM 
 (SELECT * FROM awards WHERE
      abstract_text NOT LIKE "%cochlea%" 
     AND abstract_text NOT LIKE "%semicircular %"
@@ -153,7 +151,7 @@ sqlite3 awards.db 'SELECT abstract_text FROM
 ________________________________________________________________________________________
 
 #Sum of total award amounts by year for all inner ear grants
-sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
+sqlite3 awards2.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
 (
   abstract_text LIKE "%cochlea%" 
   OR abstract_text LIKE "%inner hair cell%"
@@ -181,7 +179,7 @@ sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM award
     GROUP by fiscal_year'
  
 #Sum of total award amounts by year for grants only containing auditory terms
-sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
+sqlite3 awards2.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
 (
   abstract_text LIKE "%cochlea%" 
   OR abstract_text LIKE "%inner hair cell%"
@@ -209,7 +207,7 @@ sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM award
       GROUP by fiscal_year'
 
 #Sum of total award amounts by year for grants only containing vestibular terms
-sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
+sqlite3 awards2.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
 (
   abstract_text LIKE "%vestibular labyrinth%"
   OR abstract_text LIKE "%semicircular %"
@@ -238,7 +236,7 @@ sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM award
        GROUP by fiscal_year'
 
 #Sum of total award amounts by year for grants with neither auditory or vestibular specific search terms 
-sqlite3 awards.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
+sqlite3 awards2.db '.mode csv' 'SELECT fiscal_year, SUM (award_amount) FROM awards WHERE
 (
      abstract_text NOT LIKE "%cochlea%" 
     AND abstract_text NOT LIKE "%semicircular %"
