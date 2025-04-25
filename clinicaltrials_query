@@ -1,0 +1,40 @@
+import requests
+import json
+
+"""
+The example curl request recapitulated in the script below:
+
+    curl -X GET "https://clinicaltrials.gov/api/v2/studies?format=json&query.term=cochlea&countTotal=true" \
+    -H "accept: application/json" \
+
+
+API guide:
+
+    https://clinicaltrials.gov/data-api/api
+
+Running this script:
+
+    python3 gpt.py > out.json
+    cat out.json | jq -C | less -R
+
+"""
+
+
+url = "https://clinicaltrials.gov/api/v2/studies"
+
+params = {
+    "format": "json",
+    "query.term": "cochlea AND (utricle OR saccule)",
+    "countTotal": "true"
+}
+headers = {
+    "accept": "application/json"
+}
+
+response = requests.get(url, headers=headers, params=params)
+
+
+if response.status_code == 200:
+    print(json.dumps(response.json()))
+else:
+    print(response.content)
