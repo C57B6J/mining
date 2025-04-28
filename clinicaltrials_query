@@ -24,8 +24,10 @@ url = "https://clinicaltrials.gov/api/v2/studies"
 
 params = {
     "format": "json",
-    "query.term": "cochlea AND (utricle OR saccule)",
-    "countTotal": "true"
+    "query.cond": "ear disease OR hearing loss OR presbycusis OR deaf OR vertigo OR dizziness OR labyrinthitis OR Usher Syndrome OR Neurofibromatosis type 2 OR vestibular schwannoma OR acoustic neuroma",
+    "countTotal": "true",
+    "filter.overallStatus": "COMPLETED",
+    "fields": "Condition,BriefTitle,OfficialTitle"
 }
 headers = {
     "accept": "application/json"
