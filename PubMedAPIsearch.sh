@@ -134,3 +134,15 @@ curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&te
 &retstart=0\
 &retmax=60\
 &tool=biomed3&retmode=json"
+
+#Return "Vestibular Labyrinth" from vestibular hits only
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
+vestibular+labyrinth+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
+\+semicircular+canal+NOT\+vestibular+macula+NOT\+otolith+NOT\+crista+ampullaris+NOT\+utricle+NOT\+saccule+NOT\
++prostatic+NOT\+laryngeal\
+&datetype=pdat\
+&mindate=1825\
+&maxdate=2025\
+&retstart=0\
+&retmax=60\
+&tool=biomed3&retmode=json"
