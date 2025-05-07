@@ -112,7 +112,6 @@ curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&te
 &retmax=60\
 &tool=biomed3&retmode=json"
 
-
 #Return Vestibular Macula from Vestibular Hits Only (436 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
 \vestibular+macula+NOT\cochlea+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
@@ -135,10 +134,65 @@ curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&te
 &retmax=60\
 &tool=biomed3&retmode=json"
 
-#Return "Vestibular Labyrinth" from vestibular hits only
+#Return "Vestibular Labyrinth" from vestibular hits only (13594 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
 vestibular+labyrinth+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
 \+semicircular+canal+NOT\+vestibular+macula+NOT\+otolith+NOT\+crista+ampullaris+NOT\+utricle+NOT\+saccule+NOT\
++prostatic+NOT\+laryngeal\
+&datetype=pdat\
+&mindate=1825\
+&maxdate=2025\
+&retstart=0\
+&retmax=60\
+&tool=biomed3&retmode=json"
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Return "cochlea" from auditory hits only (32,657 hits)
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
+cochlea+NOT\vestibular+labyrinth+NOT\+semicircular+canal+NOT\+vestibular+macula+NOT\+otolith+NOT\+crista+ampullaris+NOT\+utricle+NOT\+saccule+NOT\
++prostatic+NOT\+laryngeal\
+&datetype=pdat\
+&mindate=1825\
+&maxdate=2025\
+&retstart=0\
+&retmax=60\
+&tool=biomed3&retmode=json"
+
+#Return "organ of corti" from auditory hits only (11,977 hits)
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
+organ+of+corti+NOT\vestibular+labyrinth+NOT\+semicircular+canal+NOT\+vestibular+macula+NOT\+otolith+NOT\+crista+ampullaris+NOT\+utricle+NOT\+saccule+NOT\
++prostatic+NOT\+laryngeal\
+&datetype=pdat\
+&mindate=1825\
+&maxdate=2025\
+&retstart=0\
+&retmax=60\
+&tool=biomed3&retmode=json"
+
+#Return "basilar membrane" from auditory hits only (2925 hits)
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
++basilar+membrane+NOT\vestibular+labyrinth+NOT\+semicircular+canal+NOT\+vestibular+macula+NOT\+otolith+NOT\+crista+ampullaris+NOT\+utricle+NOT\+saccule+NOT\
++prostatic+NOT\+laryngeal\
+&datetype=pdat\
+&mindate=1825\
+&maxdate=2025\
+&retstart=0\
+&retmax=60\
+&tool=biomed3&retmode=json"
+
+#Return "Reissner's membrane" from auditory hits only (374 hits)
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
++reissner+membrane+NOT\vestibular+labyrinth+NOT\+semicircular+canal+NOT\+vestibular+macula+NOT\+otolith+NOT\+crista+ampullaris+NOT\+utricle+NOT\+saccule+NOT\
++prostatic+NOT\+laryngeal\
+&datetype=pdat\
+&mindate=1825\
+&maxdate=2025\
+&retstart=0\
+&retmax=60\
+&tool=biomed3&retmode=json"
+
+#Return "Spiral gangli" from auditory hits only (3804 hits)
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
++spiral+ganglion+NOT\vestibular+labyrinth+NOT\+semicircular+canal+NOT\+vestibular+macula+NOT\+otolith+NOT\+crista+ampullaris+NOT\+utricle+NOT\+saccule+NOT\
 +prostatic+NOT\+laryngeal\
 &datetype=pdat\
 &mindate=1825\
