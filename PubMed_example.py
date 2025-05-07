@@ -37,7 +37,7 @@ def print_examples():
 def run_query(query_url):
     """Actually using the query from above to get data from the API"""
     response = requests.get(query_url)
-    if response.stats == 200:
+    if response.status_code == 200:
         return response.text
 
 
