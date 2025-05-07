@@ -2,7 +2,7 @@
 
 #Pull UIDs for all anatomical terms relating to the inner ear from 1825 to 2025, and exclude non-ear related terms like protstatic utricle and laryngeal saccule (63611 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
-cochlea+OR\+basilar+papilla+OR\+organ+of+corti+OR\+stria+vascularis+OR\+basilar+membrane+OR\+reissner's+membrane+OR\+spiral+ganglion+OR\
+cochlea+OR\tectorial+membrane+OR\+basilar+papilla+OR\+organ+of+corti+OR\+stria+vascularis+OR\+basilar+membrane+OR\+reissner's+membrane+OR\+spiral+ganglion+OR\
 \vestibular+labyrinth+OR\+semicircular+canal+OR\+vestibular+macula+OR\+otolith+OR\+crista+ampullaris+OR\+utricle+OR\+saccule+NOT\
 +prostatic+NOT\+laryngeal\
 &datetype=pdat\
@@ -14,7 +14,7 @@ cochlea+OR\+basilar+papilla+OR\+organ+of+corti+OR\+stria+vascularis+OR\+basilar+
 
 #Return Cochlear/Auditory hits only, but exclude all vestibular (34,320 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
-cochlea+OR\+basilar+papilla+OR\+organ+of+corti+OR\+stria+vascularis+OR\+basilar+membrane+OR\+reissner's+membrane+OR\+spiral+ganglion+NOT\
+cochlea+OR\tectorial+membrane+OR\+basilar+papilla+OR\+organ+of+corti+OR\+stria+vascularis+OR\+basilar+membrane+OR\+reissner's+membrane+OR\+spiral+ganglion+NOT\
 \vestibular+labyrinth+NOT\+semicircular+canal+NOT\+vestibular+macula+NOT\+otolith+NOT\+crista+ampullaris+NOT\+utricle+NOT\+saccule+NOT\
 +prostatic+NOT\+laryngeal\
 &datetype=pdat\
@@ -27,7 +27,7 @@ cochlea+OR\+basilar+papilla+OR\+organ+of+corti+OR\+stria+vascularis+OR\+basilar+
 #Return Vestibular Hits Only (27,282 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
 \vestibular+labyrinth+OR\+semicircular+canal+OR\+vestibular+macula+OR\+otolith+OR\+crista+ampullaris+OR\+utricle+OR\+saccule+NOT\
-cochlea+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
+cochlea+NOT\tectorial+membrane+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
 \+prostatic+NOT\+laryngeal\
 &datetype=pdat\
 &mindate=1825\
@@ -38,7 +38,7 @@ cochlea+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basi
 
 #Pull UIDs for all auditory/Cochlear AND vestibular terms 1825 to 2025, and exclude non-ear related terms like protstatic utricle and laryngeal saccule (17514 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
-cochlea+OR\+basilar+papilla+OR\+organ+of+corti+OR\+stria+vascularis+OR\+basilar+membrane+OR\+reissner's+membrane+OR\+spiral+ganglion+AND\
+cochlea+OR\tectorial+membrane+OR\+basilar+papilla+OR\+organ+of+corti+OR\+stria+vascularis+OR\+basilar+membrane+OR\+reissner's+membrane+OR\+spiral+ganglion+AND\
 \vestibular+labyrinth+OR\+semicircular+canal+OR\+vestibular+macula+OR\+otolith+OR\+crista+ampullaris+OR\+utricle+OR\+saccule+NOT\
 +prostatic+NOT\+laryngeal\
 &datetype=pdat\
@@ -69,7 +69,7 @@ cochlea+OR+utricle\
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Return Utricle from Vestibular Hits Only (4111 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
-+utricle+NOT\cochlea+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
++utricle+NOT\tectorial+membrane+NOT\cochlea+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
 \+prostatic+NOT\+laryngeal\
 &datetype=pdat\
 &mindate=1825\
@@ -80,7 +80,7 @@ curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&te
 
 #Return Saccule from Vestibular Hits Only (4642 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
-+saccule+NOT\cochlea+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
++saccule+NOT\tectorial+membrane+NOT\cochlea+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
 \+prostatic+NOT\+laryngeal\
 &datetype=pdat\
 &mindate=1825\
@@ -92,7 +92,7 @@ curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&te
 #Return Semicircular Canal from Vestibular Hits Only (7888 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
 +semicircular+canal+NOT\
-cochlea+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
+cochlea+NOT\tectorial+membrane+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
 \+prostatic+NOT\+laryngeal\
 &datetype=pdat\
 &mindate=1825\
@@ -103,7 +103,7 @@ cochlea+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basi
 
 #Return Crista Ampullaris from Vestibular Hits Only (304 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
-\crista+ampullaris+NOT\cochlea+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
+\crista+ampullaris+NOT\tectorial+membrane+NOT\cochlea+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
 \+prostatic+NOT\+laryngeal\
 &datetype=pdat\
 &mindate=1825\
@@ -114,7 +114,7 @@ curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&te
 
 #Return Vestibular Macula from Vestibular Hits Only (436 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
-\vestibular+macula+NOT\cochlea+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
+\vestibular+macula+NOT\cochlea+NOT\tectorial+membrane+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
 \+prostatic+NOT\+laryngeal\
 &datetype=pdat\
 &mindate=1825\
@@ -125,7 +125,7 @@ curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&te
 
 #Return Otolith from Vestibular Hits Only (4794 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
-\otolith+NOT\cochlea+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
+\otolith+NOT\cochlea+NOT\tectorial+membrane+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
 \+prostatic+NOT\+laryngeal\
 &datetype=pdat\
 &mindate=1825\
@@ -136,7 +136,7 @@ curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&te
 
 #Return "Vestibular Labyrinth" from vestibular hits only (13594 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
-vestibular+labyrinth+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
+vestibular+labyrinth+NOT\tectorial+membrane+NOT\+basilar+papilla+NOT\+organ+of+corti+NOT\+stria+vascularis+NOT\+basilar+membrane+NOT\+reissner's+membrane+NOT\+spiral+ganglion+NOT\
 \+semicircular+canal+NOT\+vestibular+macula+NOT\+otolith+NOT\+crista+ampullaris+NOT\+utricle+NOT\+saccule+NOT\
 +prostatic+NOT\+laryngeal\
 &datetype=pdat\
@@ -179,9 +179,31 @@ curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&te
 &retmax=60\
 &tool=biomed3&retmode=json"
 
+#Return "tectorial membrane" from auditory hits only (773 hits)
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
+tectorial+membrane+NOT\vestibular+labyrinth+NOT\+semicircular+canal+NOT\+vestibular+macula+NOT\+otolith+NOT\+crista+ampullaris+NOT\+utricle+NOT\+saccule+NOT\
++prostatic+NOT\+laryngeal\
+&datetype=pdat\
+&mindate=1825\
+&maxdate=2025\
+&retstart=0\
+&retmax=60\
+&tool=biomed3&retmode=json"
+
 #Return "Reissner's membrane" from auditory hits only (374 hits)
 curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
 +reissner+membrane+NOT\vestibular+labyrinth+NOT\+semicircular+canal+NOT\+vestibular+macula+NOT\+otolith+NOT\+crista+ampullaris+NOT\+utricle+NOT\+saccule+NOT\
++prostatic+NOT\+laryngeal\
+&datetype=pdat\
+&mindate=1825\
+&maxdate=2025\
+&retstart=0\
+&retmax=60\
+&tool=biomed3&retmode=json"
+
+#Return "stria vascularis" from auditory hits only (2002 hits)
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=\
++stria+vascularis+NOT\vestibular+labyrinth+NOT\+semicircular+canal+NOT\+vestibular+macula+NOT\+otolith+NOT\+crista+ampullaris+NOT\+utricle+NOT\+saccule+NOT\
 +prostatic+NOT\+laryngeal\
 &datetype=pdat\
 &mindate=1825\
